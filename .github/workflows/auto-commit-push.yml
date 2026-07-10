@@ -1,0 +1,46 @@
+name: Auto Commit and Push
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 자정 (UTC)
+  workflow_dispatch:     # 수동으로 실행 가능
+
+jobs:
+  auto-commit-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create or update file
+        run: |
+          echo "Last updated: $(date '+%Y-%m-%d %H:%M:%S')" >> auto-commit.log
+          echo "Commit count: ${{ github.run_number }}" >> auto-commit.log
+
+      - name: Check for changes
+        id: verify-changed-files
+        run: |
+          if git diff-index --quiet HEAD --; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git add -A
+          git commit -m "Auto commit: $(date '+%Y-%m-%d %H:%M:%S')"
+
+      - name: Push to repository
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git push origin main || git push origin master
