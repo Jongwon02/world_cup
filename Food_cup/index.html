@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FF6B6B">
+    <title>🍕 음식 월드컵 - 당신의 최고의 음식은?</title>
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="🍕 음식 월드컵 - 당신의 최고의 음식은?">
+    <meta property="og:description" content="100개의 음식 중 64강 토너먼트를 통해 최고의 음식을 선택하세요!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🍕 음식 월드컵">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">🍕 음식 월드컵</h1>
+            <nav class="header__nav">
+                <button class="nav-btn nav-btn--home" data-page="home">홈</button>
+                <button class="nav-btn nav-btn--results" data-page="my-results">내 결과</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- HOME PAGE -->
+        <section id="home-page" class="page page--active">
+            <div class="home">
+                <div class="home__content">
+                    <h2 class="home__title">당신의 최고의 음식은?</h2>
+                    <p class="home__description">
+                        100개의 음식 중에서 64강 토너먼트로 진행됩니다.<br>
+                        당신이 가장 좋아하는 음식을 선택하세요!
+                    </p>
+                    <div class="home__features">
+                        <div class="feature">
+                            <span class="feature__icon">🎮</span>
+                            <p class="feature__text">재미있는 토너먼트</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature__icon">📱</span>
+                            <p class="feature__text">결과 공유하기</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature__icon">💾</span>
+                            <p class="feature__text">결과 저장하기</p>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--large" id="start-btn">
+                        시작하기
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOURNAMENT PAGE -->
+        <section id="tournament-page" class="page">
+            <div class="tournament">
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-bar__label">
+                        <span id="current-round-label">로딩중...</span>
+                        <span id="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar__container">
+                        <div id="progress-fill" class="progress-bar__fill"></div>
+                    </div>
+                </div>
+
+                <!-- Current Round Info Card -->
+                <div class="round-info">
+                    <div class="round-info__container">
+                        <p class="round-info__label">현재 라운드</p>
+                        <h3 id="round-name" class="round-info__title">64강</h3>
+                        <p id="round-match-info" class="round-info__match">1/64</p>
+                    </div>
+                </div>
+
+                <!-- Tournament Content -->
+                <div class="tournament__content">
+                    <div class="matchup">
+                        <div id="left-card" class="food-card food-card--left">
+                            <img id="left-image" class="food-card__image" alt="음식">
+                            <p id="left-name" class="food-card__name"></p>
+                            <p id="left-category" class="food-card__category"></p>
+                        </div>
+
+                        <div class="matchup__divider">
+                            <span class="matchup__vs">VS</span>
+                        </div>
+
+                        <div id="right-card" class="food-card food-card--right">
+                            <img id="right-image" class="food-card__image" alt="음식">
+                            <p id="right-name" class="food-card__name"></p>
+                            <p id="right-category" class="food-card__category"></p>
+                        </div>
+                    </div>
+
+                    <div class="tournament__controls">
+                        <button class="btn btn--secondary" id="back-btn">
+                            이전 단계로
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS PAGE -->
+        <section id="results-page" class="page">
+            <div class="results">
+                <h2 class="results__title">당신의 최고의 음식은!</h2>
+
+                <div class="champion">
+                    <img id="champion-image" class="champion__image" alt="우승 음식">
+                    <h3 id="champion-name" class="champion__name"></h3>
+                    <p id="champion-category" class="champion__category"></p>
+                </div>
+
+                <div class="results__actions">
+                    <button class="btn btn--primary" id="save-btn">
+                        결과 저장하기
+                    </button>
+                    <button class="btn btn--secondary" id="share-btn">
+                        공유하기
+                    </button>
+                    <button class="btn btn--outline" id="restart-btn">
+                        다시 도전하기
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS DETAIL PAGE -->
+        <section id="results-detail-page" class="page">
+            <div class="results-detail">
+                <h2 class="results-detail__title">선택한 음식들</h2>
+
+                <div class="results-detail__stats">
+                    <div class="stat">
+                        <span class="stat__label">우승</span>
+                        <span id="champion-count" class="stat__count">1</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__label">준우승</span>
+                        <span id="runner-up-count" class="stat__count">1</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__label">4강</span>
+                        <span id="semifinal-count" class="stat__count">2</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__label">8강</span>
+                        <span id="quarterfinal-count" class="stat__count">4</span>
+                    </div>
+                </div>
+
+                <div id="results-cards-container" class="results-cards">
+                    <!-- Food cards will be inserted here -->
+                </div>
+
+                <div class="results-detail__actions">
+                    <button class="btn btn--primary" id="share-result-btn">
+                        공유하기
+                    </button>
+                    <button class="btn btn--secondary" id="download-result-btn">
+                        이미지 다운로드
+                    </button>
+                    <button class="btn btn--outline" id="restart-btn-detail">
+                        다시 도전하기
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY RESULTS PAGE -->
+        <section id="my-results-page" class="page">
+            <div class="my-results">
+                <h2 class="my-results__title">내가 저장한 결과들</h2>
+
+                <div id="saved-tournaments-container" class="saved-tournaments">
+                    <div class="empty-state">
+                        <p class="empty-state__icon">📋</p>
+                        <p class="empty-state__text">저장된 결과가 없습니다.</p>
+                        <button class="btn btn--primary" id="start-tournament-btn">
+                            새로운 토너먼트 시작
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHARE PAGE -->
+        <section id="share-page" class="page">
+            <div class="share">
+                <h2 class="share__title">결과 공유하기</h2>
+
+                <div class="share__content">
+                    <div class="share__preview">
+                        <img id="share-image" class="share__image" alt="결과">
+                        <p id="share-text" class="share__text"></p>
+                    </div>
+
+                    <div class="share__buttons">
+                        <button class="btn btn--social btn--kakao" id="share-kakao">
+                            <span>💬</span> 카카오톡 공유
+                        </button>
+                        <button class="btn btn--social btn--facebook" id="share-facebook">
+                            <span>f</span> 페이스북 공유
+                        </button>
+                        <button class="btn btn--social btn--twitter" id="share-twitter">
+                            <span>𝕏</span> 트위터 공유
+                        </button>
+                        <button class="btn btn--social btn--instagram" id="share-instagram">
+                            <span>📷</span> 인스타그램
+                        </button>
+                    </div>
+
+                    <div class="share__qr">
+                        <h3 class="share__qr-title">QR 코드</h3>
+                        <div id="qrcode" class="share__qr-container"></div>
+                        <p class="share__qr-text">이 QR 코드를 스캔하면 결과를 확인할 수 있습니다.</p>
+                    </div>
+
+                    <div class="share__actions">
+                        <button class="btn btn--outline" id="copy-link-btn">
+                            링크 복사
+                        </button>
+                        <button class="btn btn--secondary" id="back-share-btn">
+                            뒤로가기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for confirmation -->
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <h3 id="modal-title" class="modal__title"></h3>
+            <p id="modal-message" class="modal__message"></p>
+            <div class="modal__buttons">
+                <button class="btn btn--secondary" id="modal-cancel">취소</button>
+                <button class="btn btn--primary" id="modal-confirm">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="js/foods.js"></script>
+    <script src="js/tournament.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</body>
+</html>

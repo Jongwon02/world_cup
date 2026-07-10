@@ -1,0 +1,509 @@
+/* ===========================
+   FOOD CUP - Responsive Design
+   Mobile-First Approach
+   =========================== */
+
+/* ========== MOBILE: 320px ~ 767px ========== */
+
+@media (max-width: 767px) {
+    :root {
+        --font-size-2xl: 24px;
+        --font-size-xl: 20px;
+        --spacing-2xl: 32px;
+    }
+
+    /* Header */
+    .header__container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .header__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .header__nav {
+        width: 100%;
+        gap: var(--spacing-sm);
+    }
+
+    .nav-btn {
+        flex: 1;
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Container */
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    /* Home Page */
+    .home {
+        min-height: 400px;
+    }
+
+    .home__content {
+        max-width: 100%;
+    }
+
+    .home__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .home__description {
+        font-size: var(--font-size-base);
+    }
+
+    .home__features {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Tournament Page */
+    .round-info__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .matchup {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .matchup__divider {
+        transform: rotate(90deg);
+        margin: var(--spacing-md) 0;
+    }
+
+    .matchup__vs {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .food-card__image {
+        height: 200px;
+    }
+
+    /* Results Page */
+    .results {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .champion {
+        max-width: 100%;
+    }
+
+    .champion__image {
+        height: 200px;
+    }
+
+    .results__actions {
+        max-width: 100%;
+    }
+
+    /* Results Detail */
+    .results-detail__stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+
+    .stat {
+        padding: var(--spacing-md);
+    }
+
+    .stat__label {
+        font-size: var(--font-size-xs);
+    }
+
+    .stat__count {
+        font-size: var(--font-size-xl);
+    }
+
+    .results-cards {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .results-card__image {
+        height: 120px;
+    }
+
+    .results-card__name {
+        font-size: var(--font-size-sm);
+    }
+
+    .results-card__badge {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    .results-detail__actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .results-detail__actions .btn {
+        width: 100%;
+    }
+
+    /* My Results */
+    .saved-tournaments {
+        grid-template-columns: 1fr;
+    }
+
+    .tournament-card__actions {
+        flex-direction: column;
+    }
+
+    .tournament-card__actions .btn {
+        width: 100%;
+    }
+
+    /* Share Page */
+    .share__content {
+        max-width: 100%;
+    }
+
+    .share__buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .share__buttons .btn {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .share__buttons .btn span {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Buttons */
+    .btn {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+        min-height: 44px;
+    }
+
+    .btn--large {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+    }
+
+    /* Modal */
+    .modal__content {
+        width: 90%;
+        padding: var(--spacing-lg);
+    }
+
+    /* Toast */
+    .toast {
+        width: 90%;
+        min-width: auto;
+        bottom: var(--spacing-md);
+    }
+}
+
+/* ========== SMALL MOBILE: 320px ~ 480px ========== */
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-2xl: 20px;
+        --font-size-xl: 18px;
+        --font-size-lg: 16px;
+        --spacing-2xl: 24px;
+        --spacing-xl: 24px;
+    }
+
+    /* Header */
+    .header {
+        padding: var(--spacing-md) 0;
+    }
+
+    .header__title {
+        font-size: var(--font-size-lg);
+    }
+
+    .header__nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
+
+    /* Home Features */
+    .home__features {
+        gap: var(--spacing-sm);
+    }
+
+    .feature {
+        padding: var(--spacing-md);
+    }
+
+    .feature__icon {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Tournament */
+    .food-card__image {
+        height: 150px;
+    }
+
+    .food-card__name {
+        font-size: var(--font-size-base);
+    }
+
+    /* Results Cards */
+    .results-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+
+    .results-card__image {
+        height: 100px;
+    }
+
+    .results-card__content {
+        padding: var(--spacing-sm);
+    }
+
+    /* Share Buttons */
+    .share__buttons {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .share__buttons .btn {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    /* Results Detail Actions */
+    .results-detail__actions .btn {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-md);
+    }
+
+    /* Buttons */
+    .btn--social span {
+        font-size: var(--font-size-base);
+    }
+
+    /* Modal */
+    .modal__content {
+        padding: var(--spacing-lg);
+        max-width: 95%;
+    }
+
+    .modal__title {
+        font-size: var(--font-size-lg);
+    }
+
+    .modal__message {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Empty State */
+    .empty-state {
+        padding: var(--spacing-lg);
+    }
+
+    .empty-state__icon {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* ========== TABLET: 768px ~ 1024px ========== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --font-size-2xl: 28px;
+        --font-size-xl: 22px;
+    }
+
+    /* Home Features */
+    .home__features {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    /* Tournament */
+    .matchup {
+        grid-template-columns: 1fr auto 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .food-card__image {
+        height: 240px;
+    }
+
+    /* Results Detail */
+    .results-detail__stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .results-cards {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    /* Saved Tournaments */
+    .saved-tournaments {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Share Buttons */
+    .share__buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========== DESKTOP: 1025px ~ ========== */
+
+@media (min-width: 1025px) {
+    /* Default styles already optimized for desktop */
+
+    /* Header */
+    .header__container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .header__nav {
+        gap: var(--spacing-lg);
+    }
+
+    /* Home Features */
+    .home__features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Tournament */
+    .matchup {
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .food-card__image {
+        height: 300px;
+    }
+
+    /* Results Detail Stats */
+    .results-detail__stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Results Cards */
+    .results-cards {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    /* Saved Tournaments */
+    .saved-tournaments {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    /* Share Buttons */
+    .share__buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Hover Effects */
+    .food-card:active {
+        transform: scale(0.98);
+    }
+
+    .btn:active:not(:disabled) {
+        transform: translateY(0);
+    }
+}
+
+/* ========== LARGE DESKTOP: 1440px ~ ========== */
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .results-cards {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .saved-tournaments {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #1A1A1A;
+        --color-bg-light: #2D2D2D;
+        --color-text: #E0E0E0;
+        --color-text-light: #A0A0A0;
+        --color-border: #404040;
+        --color-shadow: rgba(0, 0, 0, 0.3);
+    }
+
+    .food-card {
+        border-color: #404040;
+    }
+
+    .modal__content {
+        background: #2D2D2D;
+    }
+
+    .toast {
+        background: #404040;
+    }
+}
+
+/* ========== LANDSCAPE MODE ========== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .container {
+        padding: var(--spacing-sm);
+        min-height: auto;
+    }
+
+    .food-card__image {
+        height: 120px;
+    }
+
+    .home {
+        min-height: auto;
+        padding: var(--spacing-md) 0;
+    }
+}
+
+/* ========== TOUCH DEVICES ========== */
+
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .food-card,
+    .feature,
+    .tournament-card,
+    .results-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    .food-card:active {
+        transform: scale(0.95);
+        border-color: var(--color-primary);
+    }
+}
